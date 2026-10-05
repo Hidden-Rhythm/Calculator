@@ -2,9 +2,12 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+        <meta name="theme-color" content="#0a0773">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-        <title>calculator!</title>
+        <title>Calculator!</title>
         
         <!--Linking CSS file-->
         <link rel="stylesheet" href="style.css">
@@ -19,15 +22,11 @@
     </head>
     <body>
         <!--Background music setup-->
-        <img id="music-toggle" src="assets/buttons/music-off.png" alt="Music Toggle" class="music-btn">
+        <img id="music-toggle" src="assets/buttons/music-off.png" alt="Music Toggle" class="music-btn" title="Toggle Music">
         <audio id="bg-music" src="assets/sounds/bg.mp3" preload="auto" loop></audio>
         
         <!--Main container storing calculator elements-->
         <div class="calculator-wrapper">
-
-            <!--Loading background images-->
-            <img src="./assets/bg.png" alt="Calculator background" class="bg">
-            <img src="./assets/lines.png" alt="Lines separating expressions" class="lines">
 
             <!--Loading button-click audio files-->
             <audio id="click" src="assets/sounds/click.mp3" preload="auto"></audio>
@@ -38,139 +37,140 @@
             <audio id="sidebar-toggle-click" src="assets/sounds/sidebar-click.mp3" preload="auto"></audio>
 
             <!--Container for screen sections (current and last 3 results)-->
-            <div class="screen curr-screen">
-                <div id="display">0</div>
-            </div>
-            <div class="screen old-screen old-screen-1">
-                <div id="old-display-1"></div>
-            </div>
-            <div class="screen old-screen old-screen-2">
-                <div id="old-display-2"></div>
-            </div>
-            <div class="screen old-screen old-screen-3">
-                <div id="old-display-3"></div>
+            <div class="screens-container">
+                <div class="screen curr-screen">
+                    <div id="display">0</div>
+                </div>
+                <div class="screen old-screen old-screen-1">
+                    <div id="old-display-1"></div>
+                </div>
+                <div class="screen old-screen old-screen-2">
+                    <div id="old-display-2"></div>
+                </div>
+                <div class="screen old-screen old-screen-3">
+                    <div id="old-display-3"></div>
+                </div>
             </div>
 
             <!--Container for grid containing basic buttons-->
             <div class="base-buttons-grid">
-                <button type="button" class="btn" data-value="(">
-                    <img src="assets/buttons/(.jpg" alt="(" class="btn-img">
+                <button type="button" class="btn" data-value="(" title="Open Parenthesis">
+                    (
                 </button>
-                <button type="button" class="btn" data-value=")">
-                    <img src="assets/buttons/).jpg" alt=")" class="btn-img">
+                <button type="button" class="btn" data-value=")" title="Close Parenthesis">
+                    )
                 </button>
-                <button type="button" class="btn" data-value="sqrt">
-                    <img src="assets/buttons/sqrt.jpg" alt="square root" class="btn-img">
+                <button type="button" class="btn" data-value="sqrt" title="Square Root">
+                    √
                 </button>
-                <button type="button" class="btn" data-value="+">
-                    <img src="assets/buttons/+.jpg" alt="+" class="btn-img">
+                <button type="button" class="btn" data-value="+" title="Add">
+                    +
                 </button>
-                <button type="button" class="btn" data-value="0">
-                    <img src="assets/buttons/0.jpg" alt="0" class="btn-img">
+                <button type="button" class="btn" data-value="0" title="Zero">
+                    0
                 </button>
-                <button type="button" class="btn" data-value="1">
-                    <img src="assets/buttons/1.jpg" alt="1" class="btn-img">
+                <button type="button" class="btn" data-value="1" title="One">
+                    1
                 </button>
-                <button type="button" class="btn" data-value="2">
-                    <img src="assets/buttons/2.jpg" alt="2" class="btn-img">
+                <button type="button" class="btn" data-value="2" title="Two">
+                    2
                 </button>
-                <button type="button" class="btn" data-value="-">
-                    <img src="assets/buttons/-.jpg" alt="-" class="btn-img">
+                <button type="button" class="btn" data-value="-" title="Subtract">
+                    −
                 </button>
-                <button type="button" class="btn" data-value="3">
-                    <img src="assets/buttons/3.jpg" alt="3" class="btn-img">
+                <button type="button" class="btn" data-value="3" title="Three">
+                    3
                 </button>
-                <button type="button" class="btn" data-value="4">
-                    <img src="assets/buttons/4.jpg" alt="4" class="btn-img">
+                <button type="button" class="btn" data-value="4" title="Four">
+                    4
                 </button>
-                <button type="button" class="btn" data-value="5">
-                    <img src="assets/buttons/5.jpg" alt="5" class="btn-img">
+                <button type="button" class="btn" data-value="5" title="Five">
+                    5
                 </button>
-                <button type="button" class="btn" data-value="*">
-                    <img src="assets/buttons/x.jpg" alt="x" class="btn-img">
+                <button type="button" class="btn" data-value="*" title="Multiply">
+                    ×
                 </button>
-                <button type="button" class="btn" data-value="6">
-                    <img src="assets/buttons/6.jpg" alt="6" class="btn-img">
+                <button type="button" class="btn" data-value="6" title="Six">
+                    6
                 </button>
-                <button type="button" class="btn" data-value="7">
-                    <img src="assets/buttons/7.jpg" alt="7" class="btn-img">
+                <button type="button" class="btn" data-value="7" title="Seven">
+                    7
                 </button>
-                <button type="button" class="btn" data-value="8">
-                    <img src="assets/buttons/8.jpg" alt="8" class="btn-img">
+                <button type="button" class="btn" data-value="8" title="Eight">
+                    8
                 </button>
-                <button type="button" class="btn" data-value="/">
-                    <img src="assets/buttons/div.jpg" alt="div" class="btn-img">
+                <button type="button" class="btn" data-value="/" title="Divide">
+                    ÷
                 </button>
-                <button type="button" class="btn" data-value="9">
-                    <img src="assets/buttons/9.jpg" alt="9" class="btn-img">
+                <button type="button" class="btn" data-value="9" title="Nine">
+                    9
                 </button>
-                <button type="button" class="btn" data-value=".">
-                    <img src="assets/buttons/dot.jpg" alt="." class="btn-img">
+                <button type="button" class="btn" data-value="." title="Decimal Point">
+                    .
                 </button>
-                <button type="button" class="btn" data-value="=">
-                    <img src="assets/buttons/=.jpg" alt="=" class="btn-img">
+                <button type="button" class="btn" data-value="=" title="Equals">
+                    =
                 </button>
-                <button type="button" class="btn" data-value="del">
-                    <img src="assets/buttons/del.jpg" alt="delete" class="btn-img">
+                <button type="button" class="btn" data-value="del" title="Delete">
+                    DEL
                 </button>
             </div>
 
             <!--Sidebar toggle button-->
-            <button type="button" id="sidebar-toggle" class="sidebar-toggle">
-                <img src="assets/buttons/open.png" alt="sidebar toggle button">
+            <button type="button" id="sidebar-toggle" class="sidebar-toggle" title="Toggle Scientific Mode">
+                🔬 Scientific
             </button>
 
             <!--Container for sidebar animation-->
             <div class="sidebar" id="sidebar">
-                <img src="assets/sci-bar.png" alt="sidebar" class="sidebar-img">
             </div>
 
             <!--Container for grid on sidebar containing scientific buttons-->
             <div class="sci-grid">
-                <button type="button" class="btn" data-value="sin">
-                    <img src="assets/buttons/sin.png" alt="sin" class="sci-btn-img">
+                <button type="button" class="btn" data-value="sin" title="Sine">
+                    sin
                 </button>
-                <button type="button" class="btn" data-value="cos">
-                    <img src="assets/buttons/cos.png" alt="cos" class="sci-btn-img">
+                <button type="button" class="btn" data-value="cos" title="Cosine">
+                    cos
                 </button>
-                <button type="button" class="btn" data-value="tan">
-                    <img src="assets/buttons/tan.png" alt="tan" class="sci-btn-img">
+                <button type="button" class="btn" data-value="tan" title="Tangent">
+                    tan
                 </button>
-                <button type="button" class="btn" data-value="arcsin">
-                    <img src="assets/buttons/sin-inv.png" alt="inverse sin" class="sci-btn-img">
+                <button type="button" class="btn" data-value="arcsin" title="Inverse Sine">
+                    sin⁻¹
                 </button>
-                <button type="button" class="btn" data-value="arccos">
-                    <img src="assets/buttons/cos-inv.png" alt="inverse cos" class="sci-btn-img">
+                <button type="button" class="btn" data-value="arccos" title="Inverse Cosine">
+                    cos⁻¹
                 </button>
-                <button type="button" class="btn" data-value="arctan">
-                    <img src="assets/buttons/tan-inv.png" alt="inverse tan" class="sci-btn-img">
+                <button type="button" class="btn" data-value="arctan" title="Inverse Tangent">
+                    tan⁻¹
                 </button>
-                <button type="button" class="btn" data-value="log">
-                    <img src="assets/buttons/log.png" alt="log" class="sci-btn-img">
+                <button type="button" class="btn" data-value="log" title="Logarithm">
+                    log
                 </button>
-                <button type="button" class="btn" data-value="e">
-                    <img src="assets/buttons/e.png" alt="euler's number" class="sci-btn-img">
+                <button type="button" class="btn" data-value="e" title="Euler's Number">
+                    e
                 </button>
-                <button type="button" class="btn" data-value="pi">
-                    <img src="assets/buttons/pi.png" alt="pi" class="sci-btn-img">
+                <button type="button" class="btn" data-value="pi" title="Pi">
+                    π
                 </button>
-                <button type="button" class="btn" data-value="10x">
-                    <img src="assets/buttons/10x.png" alt="10^x" class="sci-btn-img">
+                <button type="button" class="btn" data-value="10x" title="10 to the Power">
+                    10ˣ
                 </button>
-                <button type="button" class="btn" data-value="yx">
-                    <img src="assets/buttons/yx.png" alt="y^x" class="sci-btn-img">
+                <button type="button" class="btn" data-value="yx" title="Y to the Power of X">
+                    yˣ
                 </button>
-                <button type="button" class="btn heart-btn">
-                    <img src="assets/buttons/heart.png" alt="heart" class="sci-btn-img">
+                <button type="button" class="btn heart-btn" title="Math Pun">
+                    ❤️
                 </button>
             </div>
+
+            <!--Footer with credits-->
+            <p class="watermark">Hidden</p>
         </div>
 
-        <!--My contact information-->
-        <p class="watermark">Hidden</p>
-
         <div class="social-icons">
-            <a href="https://github.com/Hidden-Rhythm">
+            <a href="https://github.com/Hidden-Rhythm" title="Visit GitHub Profile">
                 <img class="icon-img" src="assets/github-logo.png" alt="github">
             </a>  
         </div>
@@ -179,4 +179,3 @@
         <script src="script.js"></script>
     </body>
 </html>
-
