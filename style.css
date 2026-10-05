@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+:root {
+  --calc-size: min(92vw, 700px);
+}
+
 body {
   margin: 0;
   min-height: 100vh;
@@ -11,12 +15,15 @@ body {
   background-color: #fafbff;
   background-image: radial-gradient(#d4e4f1 5px, transparent 1px);
   background-size: 22px 22px;
+  padding: 20px 0;
 }
 
 .calculator-wrapper {
   position: relative;
-  width: 700px;
-  height: 700px;
+  width: var(--calc-size);
+  height: var(--calc-size);
+  max-width: 700px;
+  max-height: 700px;
 }
 
 .bg {
@@ -34,19 +41,19 @@ body {
 }
 
 .base-calc {
-  position: relative;  
-  width: 700px;        
-  height: 700px;
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
 .base-buttons-grid {
-  position: absolute;  
-  left: 247px;
-  top: 415px;
+  position: absolute;
+  left: 35.3%;
+  top: 59.2%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(5, 1fr);
-  gap: 11px;
+  gap: clamp(4px, 1.5vw, 11px);
 }
 
 .btn {
@@ -60,7 +67,7 @@ body {
 }
 .btn-img {
   position: relative;
-  width: 44px;
+  width: clamp(22px, 5vw, 44px);
   z-index: 3;
 }
 .btn:focus {
@@ -70,8 +77,8 @@ body {
 /* Screens only differ in font size, color and y-coordinates */
 .screen {
   position: absolute;
-  left: 239px;
-  width: 230px;
+  left: 34.1%;
+  width: 32.9%;
   font-family: "Gamja Flower", system-ui;
   display: flex;
   align-items: center;
@@ -81,34 +88,34 @@ body {
   text-overflow: ellipsis;
 }
 .curr-screen {
-  top: 368px;
-  height: 28px;
-  font-size: 30px;
+  top: 52.6%;
+  height: 4%;
+  font-size: clamp(20px, 4vw, 30px);
   color: #0a0773;
   z-index: 5;
 }
 .old-screen {
-  font-size: 25px;
+  font-size: clamp(16px, 3vw, 25px);
   color: #3b3a78;
   z-index: 6;
-  height: 26px;
+  height: 3.7%;
 }
 .old-screen-1 {
-  top: 330px;
+  top: 47.1%;
 }
 .old-screen-2 {
-  top: 290px; 
+  top: 41.4%;
 }
 .old-screen-3 { 
-  top: 252px; 
+  top: 36%;
 }
 
 .sidebar {
-  position: absolute; 
-  top: 220px;
-  right: 143px;
-  width: 40%;    
-  height: 40%;   
+  position: absolute;
+  top: 31.4%;
+  right: 20.4%;
+  width: 40%;
+  height: 40%;
   transform: translateX(0);
   transition: transform 0.4s ease;
 }
@@ -128,8 +135,8 @@ body {
 
 .sci-grid {
   position: absolute;
-  top: 230px;
-  right:180px;
+  top: 32.9%;
+  right: 25.7%;
   width: 0px;
   gap: 15px;
   height: 260px;
@@ -144,8 +151,8 @@ body {
 
 .sidebar-toggle {
   position: absolute;
-  top: 500px;
-  right: 135px;
+  top: 71.4%;
+  right: 19.3%;
   z-index: 10; 
   background: none;
   border: none;
@@ -156,19 +163,19 @@ body {
     outline: none;
 }
 .sidebar-toggle img {
-  width: 70px;
-  height: 70px;
+  width: clamp(44px, 8vw, 70px);
+  height: clamp(44px, 8vw, 70px);
 }
 
 .sci-btn-img {
   position: relative;
-  width: 40px;
+  width: clamp(20px, 5vw, 40px);
   z-index: 3;
 }
 
 .watermark {
     position: absolute;
-    font-size: 30px;
+    font-size: clamp(18px, 4vw, 30px);
     font-family: "Gamja Flower", system-ui;
     color: #0a0773;
     bottom: 10px;
@@ -176,8 +183,8 @@ body {
 }
 
 .music-btn {
-  width: 50px; 
-  height: 50px; 
+  width: clamp(36px, 7vw, 50px);
+  height: clamp(36px, 7vw, 50px);
   cursor: pointer; 
   position: fixed; 
   top: 30px; 
@@ -192,8 +199,40 @@ body {
 }
 
 .icon-img {
-  width: 50px;
-  height: 50px;
+  width: clamp(32px, 7vw, 50px);
+  height: clamp(32px, 7vw, 50px);
   padding: 5px;
+}
+
+@media (max-width: 700px) {
+  body {
+    padding: 20px 0 50px;
+    align-items: flex-start;
+  }
+
+  .calculator-wrapper {
+    width: min(92vw, 700px);
+    height: auto;
+    aspect-ratio: 1;
+  }
+
+  .music-btn {
+    top: 12px;
+    right: 12px;
+  }
+
+  .social-icons {
+    bottom: 12px;
+    right: 12px;
+  }
+
+  .watermark {
+    left: 12px;
+    bottom: 8px;
+  }
+
+  .sidebar.open {
+    transform: translateX(30%);
+  }
 }
 
