@@ -1,0 +1,199 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fafbff;
+  background-image: radial-gradient(#d4e4f1 5px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+.calculator-wrapper {
+  position: relative;
+  width: 700px;
+  height: 700px;
+}
+
+.bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.lines {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.base-calc {
+  position: relative;  
+  width: 700px;        
+  height: 700px;
+}
+
+.base-buttons-grid {
+  position: absolute;  
+  left: 247px;
+  top: 415px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 11px;
+}
+
+.btn {
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: none;
+    outline: none;
+    cursor: pointer;
+    z-index: 10
+}
+.btn-img {
+  position: relative;
+  width: 44px;
+  z-index: 3;
+}
+.btn:focus {
+    outline: none;    
+}
+
+/* Screens only differ in font size, color and y-coordinates */
+.screen {
+  position: absolute;
+  left: 239px;
+  width: 230px;
+  font-family: "Gamja Flower", system-ui;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.curr-screen {
+  top: 368px;
+  height: 28px;
+  font-size: 30px;
+  color: #0a0773;
+  z-index: 5;
+}
+.old-screen {
+  font-size: 25px;
+  color: #3b3a78;
+  z-index: 6;
+  height: 26px;
+}
+.old-screen-1 {
+  top: 330px;
+}
+.old-screen-2 {
+  top: 290px; 
+}
+.old-screen-3 { 
+  top: 252px; 
+}
+
+.sidebar {
+  position: absolute; 
+  top: 220px;
+  right: 143px;
+  width: 40%;    
+  height: 40%;   
+  transform: translateX(0);
+  transition: transform 0.4s ease;
+}
+.sidebar.open {
+  transform: translateX(183px); /* Sidebar sliding animation on click */
+}
+.sidebar.open ~ .sci-grid {
+  opacity: 1;
+  pointer-events: auto;    
+}
+.sidebar-img {
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.sci-grid {
+  position: absolute;
+  top: 230px;
+  right:180px;
+  width: 0px;
+  gap: 15px;
+  height: 260px;
+  display: grid; 
+  grid-template-columns: repeat(3, 1fr); 
+  grid-template-rows: repeat(4, 1fr);  
+  z-index: 1;   
+  opacity: 0;   
+  pointer-events: auto;       
+  transition: opacity 0.3s ease;    
+}
+
+.sidebar-toggle {
+  position: absolute;
+  top: 500px;
+  right: 135px;
+  z-index: 10; 
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.sidebar-toggle:focus {
+    outline: none;
+}
+.sidebar-toggle img {
+  width: 70px;
+  height: 70px;
+}
+
+.sci-btn-img {
+  position: relative;
+  width: 40px;
+  z-index: 3;
+}
+
+.watermark {
+    position: absolute;
+    font-size: 30px;
+    font-family: "Gamja Flower", system-ui;
+    color: #0a0773;
+    bottom: 10px;
+    left: 30px;
+}
+
+.music-btn {
+  width: 50px; 
+  height: 50px; 
+  cursor: pointer; 
+  position: fixed; 
+  top: 30px; 
+  right: 35px; 
+  z-index: 100;
+}
+
+.social-icons {
+  position: absolute;
+  bottom: 35px;
+  right: 35px;
+}
+
+.icon-img {
+  width: 50px;
+  height: 50px;
+  padding: 5px;
+}
+
